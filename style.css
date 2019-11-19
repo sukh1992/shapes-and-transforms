@@ -1,0 +1,314 @@
+/* SHAPES & TRANSFORMATIONS */
+
+/* Base */
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+	font-weight: 400;	
+	margin: 0;
+	padding: 0;
+	background: #1d1d1d;
+	color: #eaeaea;
+	overflow-x: hidden;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+p {
+	margin: 1em 0;
+}
+section {
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 3em 1em 1em 1em;
+	min-height: 66vh;
+	text-align: center;
+}
+section:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 0.25em;
+	bottom: 0;
+	left: 0;
+	background-color: #E91E63;
+	background-image: linear-gradient(to left, #E91E63, #673AB7);
+}
+section:last-child:after {
+	display: none;
+}
+section div {
+	margin: 0 auto;
+}
+main {
+	position: relative;
+	z-index: 1;
+	margin-bottom: 10em;
+}
+nav {
+	padding: 0.25em 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	z-index: 2;
+	text-align: center;
+	/* CSS gradients https://cssgradient.io/ are best done with generators! */
+	background-color: #E91E63;
+	background-image: linear-gradient(to left, #E91E63, #673AB7);
+}
+nav a {
+	display: inline-block;
+	color: #eaeaea;
+	text-decoration: none;
+	border: 2px solid #eaeaea;
+	border-radius: 1em;
+	margin: 0.25em;
+	padding: 0.25em 0.5em;
+	text-transform: uppercase;
+	line-height: 1;
+	transition: all 0.3s ease;
+	box-shadow: 0 0 0 #eaeaea;
+}
+nav a:hover {
+	box-shadow: 0 0 0.25em #eaeaea;
+	text-shadow: 0 0 0.125em #eaeaea;
+}
+
+
+
+
+
+
+.square {
+	background-color: #F44336;
+	height: 300px;
+	width: 300px;
+
+}
+
+
+.line {
+	/*background-color: blue;
+	width: 300px;
+	height: 2px;*/
+	height: 300px;
+	border-left: 2px solid blue;
+
+}
+
+
+.circle {
+	background-color: #3F51B5;
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+
+}
+
+.sphere {
+	background-color: #009688;
+	box-shadow: -50px -100px 100px black inset;
+
+}
+
+.rotated {
+	width: 0; 
+	height: 0; 
+	border-left: 5em solid transparent;
+	border-right: 5em solid transparent;
+	border-bottom: 8em solid #FFEB3B;
+	transform: rotate(22deg);
+	transform-origin: top;
+
+}
+
+
+
+.flip {
+	color: #607D8B;
+	font-size: 3em;
+	transform: scaleX(-1);
+
+}
+
+
+
+
+
+.custom-1 {
+	background-color: forestgreen;
+	width: 5em;
+	height: 5em;
+	position: absolute;
+	top: 32em;
+	left: 8em;
+
+	z-index: 1;
+	animation-name: move-block;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-fill-mode: forwards;
+
+}
+
+@keyframes move-block {
+	from {
+		left: 1em;
+		background-color: blue;
+
+	}
+
+	
+	to {
+		left: 15em;
+		background-color: red;
+		transform: rotate(45deg);
+
+		}
+
+}
+
+
+.custom-2 {
+	background-color: yellow;
+	width: 5em;
+	height: 5em;
+	position: absolute;
+	top: 20em;
+	left: 6em;
+	border-radius: 50%;
+	animation-name: bounce;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+	animation-duration: 2s;
+
+}
+
+
+
+
+@keyframes bounce {
+	0% {
+		transform: translateX(0);
+	}
+
+	50% {
+		transform: translateX(-100px);
+
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.rotating-box {
+	width: 200px;
+	height: 200px;
+	margin: 10px auto;
+	perspective: 800px;
+	
+}
+
+.single-rb {
+	width: 200px;
+	animation: rotate 6s linear infinite;
+	transform-style: preserve-3d;
+	margin-top: 300px;
+	
+}
+
+
+.single-rb div{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+
+}
+
+
+.face-front {
+	transform: translateZ(100px); 
+	background-color: red; 
+	background-image: url(images/IronMan.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.face-back {
+	transform: rotateY(180deg) translateZ(100px);
+	background-color: orange;
+	background-image: url(images/BlackPanther.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+
+.face-left {
+	transform: rotateY(-90deg) translateX(-100px);
+	transform-origin:	left;
+	background-color: yellow;
+	background-image: url(images/hulk.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.face-bottom {
+	transform: rotateX(90deg) translateY(100px);
+	transform-origin: bottom;
+	background-color: green;
+	background-image: url(images/thor.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.face-top {
+	transform: rotateX(-90deg) translateY(-100px) ;
+	transform-origin: top;
+	
+	background-color: blue;
+	background-image: url(images/SpiderMan.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.face-right {
+	transform: rotateY(90deg) translateX(100px) ;
+	transform-origin: right;
+	background-color: lime;
+	background-image: url(images/CaptainAmerica.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+@keyframes rotate{
+	0%{transform: rotate3d(0, 0, 0);}
+	100%{transform: rotate3d(1, 1, 1, 360deg);}
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
